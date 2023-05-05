@@ -42,10 +42,10 @@ export default {
             <p>-</p>
             <p>{{ num2 }}</p>
         </div>
-        <p v-if="isWin">{{ result }}</p>
+        <p id="answer" v-if="isWin">{{ result }}</p>
 
-        <input class="input" type="number" v-model="num3">
-        <button type="button" @click="cal">Confirm</button>
+        <input class="input" type="number" v-model="num3" v-if="answer">
+        <button type="button" @click="cal" v-if="answer">Confirm</button>
     </div>
 </template>
 
@@ -53,15 +53,20 @@ export default {
 .views {
     background-color: white;
     width: 400px;
-    height: 500px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     // justify-content: center;
     align-items: center;
     border-radius: 50px;
 
+    #answer {
+        margin-top: 70px;
+        font-size: 48px;
+    }
+
     h1 {
-        margin: 40px 30px 0 0;
+        margin: 60px 30px 0 0;
         font-size: 40px;
     }
 
